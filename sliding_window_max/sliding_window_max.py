@@ -16,8 +16,7 @@ def sliding_window_max(nums, k):
     # Increment begining and end pointers by 1
     # i += 1
     # j += 1
-    # Iterate through the original array, if the newest val (k) is greater than mav_val
-    #
+    # Iterate through the original array
     while i <= len(nums) - k:
         sub_array = nums[i:j]
         res_arr.append(max(sub_array))
@@ -25,33 +24,33 @@ def sliding_window_max(nums, k):
         j += 1
     return res_arr
 
-    # Initialize a list for storing our max values
-    res_arr = []
-    # Initialize a deque for storing the indices of potetntial max values within our window
-    max_que = deque()
-    # Iterate through our list of nums, using enumerate to destructure the the index and value from each position in the list
-    for (i, val) in enumerate(nums):
-        # While the que is not empty, and the curr_val is greater than the value of the last index stored in the que
-        # Remove the last value in the que
-        # If the curr_val is larger than the val of any index in the que, it will empty the que
-        while len(max_que) > 0 and val > nums[max_que[-1]]:
-            max_que.pop()
-        # Append the index of the curr-val to the que
-        max_que.append(i)
+    # # Initialize a list for storing our max values
+    # res_arr = []
+    # # Initialize a deque for storing the indices of potetntial max values within our window
+    # max_que = deque()
+    # # Iterate through our list of nums, using enumerate to destructure the the index and value from each position in the list
+    # for (i, val) in enumerate(nums):
+    #     # While the que is not empty, and the curr_val is greater than the value of the last index stored in the que
+    #     # Remove the last value in the que
+    #     # If the curr_val is larger than the val of any index in the que, it will empty the que
+    #     while len(max_que) > 0 and val > nums[max_que[-1]]:
+    #         max_que.pop()
+    #     # Append the index of the curr-val to the que
+    #     max_que.append(i)
 
-        # j is the pointer for the left extent of our window, we use i and the passed window size to locate it
-        # i is the pointer for the right extent of our window
-        j = i + 1 - k
-        # If the window is full (j >= 0), add the value of the index at the head of the que to our results list
-        if j >= 0:
-            res_arr.append(nums[max_que[0]])
-            # If the the index of the max value and the left pointer are the same,
-            # remove it from the head of the que, as it will be outside the window
-            # on the next pass
-            if j == max_que[0]:
-                max_que.popleft()
-    # Time complexity O(n), Space complexity O(n)
-    return res_arr
+    #     # j is the pointer for the left extent of our window, we use i and the passed window size to locate it
+    #     # i is the pointer for the right extent of our window
+    #     j = i + 1 - k
+    #     # If the window is full (j >= 0), add the value of the index at the head of the que to our results list
+    #     if j >= 0:
+    #         res_arr.append(nums[max_que[0]])
+    #         # If the the index of the max value and the left pointer are the same,
+    #         # remove it from the head of the que, as it will be outside the window
+    #         # on the next pass
+    #         if j == max_que[0]:
+    #             max_que.popleft()
+    # # Time complexity O(n), Space complexity O(n)
+    # return res_arr
 
 
 if __name__ == '__main__':
