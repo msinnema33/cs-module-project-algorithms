@@ -5,16 +5,6 @@ Returns: a List of integers
 # need to check into the swap/no swap logic
 
 def moving_zeroes(arr):
-    # count = 0 
-    # for x in arr:
-    #     if x == 0:
-    #         count += 1
-    #         arr.remove(x)
-    #     # else:
-    #     #     return arr
-    #     return arr + ([0] * (count - 1))
-    #
-    #This passes all but a list without zeros
     i = 0
     while i < len(arr):
         if (0 in arr):
