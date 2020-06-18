@@ -17,10 +17,11 @@ def moving_zeroes(arr):
     #This passes all but a list without zeros
     i = 0
     while i < len(arr):
-        # if arr[i] != 0:
-        #     continue
-        arr.append(arr.pop(arr.index(0)))
-        i +=1
+        if (0 in arr):
+            arr.append(arr.pop(arr.index(0)))
+            i +=1
+        else:
+            i += 1
     return arr
 
          
